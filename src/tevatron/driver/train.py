@@ -126,7 +126,7 @@ def main():
         train_dataset = datasets.load_dataset(data_args.dataset_name,
                                               data_args.dataset_language,
                                               cache_dir=model_args.cache_dir)[data_args.dataset_split]
-        train_dataset = train_dataset.select(range(1000))
+        train_dataset = train_dataset.select(range(100000))
         train_dataset = train_dataset.map(
             HFTrainPreProcessor(tokenizer, data_args.q_max_len, data_args.p_max_len, separator=data_args.passage_field_separator),
             batched=False,
